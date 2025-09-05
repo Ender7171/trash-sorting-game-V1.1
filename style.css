@@ -1,0 +1,270 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* ================================
+   Start Page
+================================ */
+.start-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #d4f5d0, #a6e3a1, #f4f9f4);
+}
+
+.game-title {
+  font-size: 12vw; /* scales on small screens */
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  color: #2e7d32; /* fallback */
+  text-shadow: 0 0 8px rgba(46,125,50,.5), 0 0 15px rgba(46,125,50,.4);
+  animation: glow 2s infinite alternate;
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .game-title {
+    background-image: linear-gradient(90deg, #2e7d32, #4caf50, #81c784);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px rgba(46,125,50,.6), 0 0 10px rgba(46,125,50,.4); }
+  to   { text-shadow: 0 0 15px rgba(46,125,50,.9), 0 0 25px rgba(46,125,50,.7); }
+}
+
+.tagline {
+  font-size: 4vw;
+  color: #2e7d32;
+  margin-bottom: 40px;
+}
+
+.play-btn {
+  font-size: 5vw;
+  padding: 3vw 5vw;
+  border: none;
+  border-radius: 10px;
+  background: #2b7a0b;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.play-btn:hover {
+  background: #248f0a;
+  transform: scale(1.05);
+}
+
+/* ================================
+   Game Page
+================================ */
+.game-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #c8e6c9, #81c784, #388e3c);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding-top: 80px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* allow bins to wrap on small screens */
+  gap: 15px;
+  margin: 20px 10px;
+}
+
+.bin {
+  width: 25vw;   /* responsive width */
+  max-width: 120px;
+  height: 30vw;  /* responsive height */
+  max-height: 150px;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  background: #fff;
+}
+
+.bin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 10px;
+  flex-wrap: wrap;
+}
+
+.item {
+  font-size: 10vw; /* scales with viewport */
+  min-width: 40px;
+  min-height: 40px;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.item:active {
+  cursor: grabbing;
+  transform: scale(1.2);
+}
+
+#score {
+  font-size: 5vw;
+  margin-top: 20px;
+}
+
+/* ================================
+   Popup Box
+================================ */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* smooth fade */
+}
+
+/* when active */
+.popup.show {
+  display: flex;
+  opacity: 1;
+}
+
+/* Popup box */
+.popup-content {
+  background: #fff;
+  color: #333;      /* <-- add this line */
+  padding: 25px 35px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 350px;
+  width: 80%;
+  transform: scale(0.8);
+  opacity: 0;
+  animation: popupIn 0.35s ease forwards;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+#popup-message {
+  font-size: 24px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Pop-in animation */
+@keyframes popupIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Buttons */
+.popup-buttons button {
+  margin-top: 15px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.25s;
+}
+
+.popup-buttons button:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+
+/* ================================
+   Back Button
+================================ */
+.back-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.back-btn {
+  font-size: 4vw;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #d9534f;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.back-btn:hover {
+  background: #c9302c;
+  transform: scale(1.05);
+}
+.item.selected {
+  border: 3px solid #ffeb3b;     /* yellow border */
+  background: rgba(255,235,59,0.12);
+  border-radius: 10px;
+  padding: 6px;
+  transform: scale(1.08);
+  transition: transform 0.12s;
+}
+.rules {
+  margin-top: 30px;
+  text-align: left;
+  background: rgba(255, 255, 255, 0); /* fully transparent */
+  color: #357904; /* white text for contrast on gradient background */
+  max-width: 90vw;
+  font-size: 3.5vw;
+  padding: 4vw;
+  border-radius: 12px;
+}
+
+.rules h2 {
+  margin-top: 0;
+  font-size: 22px;
+  text-align: center;
+}
+
+.rules ul {
+  margin: 10px 0 0 20px;
+  padding: 0;
+  list-style-type: disc;
+  font-size: 16px;
+  line-height: 1.5;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Trash Sorting Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="start-page">
+  <h1 class="game-title">♻️ Trash Sorting Game ♻️</h1>
+  <p class="tagline">Learn to recycle while having fun!</p>
+
+  <div class="start-container">
+    <button class="play-btn" onclick="startGame()">Play Now</button>
+
+    <!-- Rules section -->
+    <div class="rules">
+      <h2>📝 Rules</h2>
+      <ul>
+        <li>Drag the trash items into the correct bins (Plastic, Organic, Metal).</li>
+        <li>Each correct placement gives you 1 point.</li>
+        <li>Incorrect placement deducts 1 point (minimum score is 0).</li>
+        <li>There are 7 rounds per game.</li>
+        <li>Try to get the highest score!</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function startGame() {
+      window.location.href = "game.html";
+    }
+  </script>
+</body>
+</html>

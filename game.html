@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Trash Sorting Game - Play</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="game-page">
+
+  <!-- Back button -->
+  <div class="back-container">
+    <button class="back-btn" onclick="goHome()">⬅ Back to Home</button>
+  </div>
+
+  <h1>♻️ Trash Sorting Game</h1>
+  <p>Drag the trash item into the correct bin!</p>
+
+  <div class="game-container">
+    <div class="bin" data-type="plastic">
+      <img src="plastic-bin.png" alt="Plastic Bin">
+    </div>
+    <div class="bin" data-type="organic">
+      <img src="organic-bin.png" alt="Organic Bin">
+    </div>
+    <div class="bin" data-type="metal">
+      <img src="metal-bin.png" alt="Metal Bin">
+    </div>
+  </div>
+
+  <div class="items"></div>
+
+  <div id="score">Score: 0</div>
+
+  <!-- Popup box -->
+  <div id="popup" class="popup">
+  <div class="popup-content">
+    <p id="popup-message"></p>
+    <div class="popup-buttons"></div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <script>
+    function goHome() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
